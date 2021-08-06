@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="280dp"
+    android:layout_height="420dp">
+
+    <ImageView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/update_dialog_03" />
+
+    <RelativeLayout
+        android:id="@+id/chacha"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/dp50">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/update_dialog_01" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/gx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/nested"
+        android:gravity="center_horizontal"
+        android:paddingLeft="@dimen/dp20"
+        android:paddingRight="@dimen/dp20"
+        android:text="更新内容："
+        android:textColor="#FF302F2F"
+        android:textSize="@dimen/dp16"
+        android:textStyle="bold" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp160"
+        android:layout_above="@+id/anniu"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/dp6"
+        android:layout_marginBottom="@dimen/dp2"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/neirong"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lineSpacingExtra="4dp"
+                android:paddingLeft="@dimen/dp20"
+                android:paddingTop="@dimen/dp2"
+                android:paddingRight="@dimen/dp20"
+                android:paddingBottom="@dimen/dp2"
+                android:textColor="#666666"
+                android:textSize="@dimen/dp14"
+                tools:text="内容" />
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <TextView
+        android:id="@+id/anniu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp30"
+        android:background="@mipmap/update_dialog_02"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dp4"
+        android:textColor="#fff"
+        android:textSize="@dimen/dp17" />
+</RelativeLayout>
+
