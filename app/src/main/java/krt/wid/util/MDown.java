@@ -45,7 +45,7 @@ public class MDown {
     private DownLoadCallBack downLoadListener;
 
 
-    private MDown(MDown.Builder builder) {
+    private MDown(Builder builder) {
         this.mContext = builder.mContext;
         this.url = builder.url;
         this.fileDir = builder.fileDir;

@@ -1,4 +1,4 @@
-//package krt.wid.ui;
+package krt.wid.ui;//package krt.wid.ui;
 //
 //import android.os.Bundle;
 //import android.view.LayoutInflater;

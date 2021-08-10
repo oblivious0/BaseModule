@@ -1,4 +1,4 @@
-//package krt.wid.ui;
+package krt.wid.ui;//package krt.wid.ui;
 //
 //import android.annotation.SuppressLint;
 //import android.graphics.Bitmap;
