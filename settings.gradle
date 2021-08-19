@@ -1,3 +1,4 @@
 rootProject.name='krt_lib'
 include ':app'
 include ':sdk_demo'
+include ':krt_buried'
