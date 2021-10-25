@@ -2,7 +2,10 @@ package krt.wid.demo;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.graphics.Color;
 import android.view.View;
+
+import com.lihang.ShadowLayout;
 
 import butterknife.OnClick;
 import krt.wid.demo.base.BaseActivity;
@@ -17,6 +20,8 @@ public class MainActivity extends BaseActivity {
     HfyUpdateProgressDialog dialog;
     CustomVersionDialog Vdialog;
 
+    ShadowLayout shadowLayout;
+
     @Override
     public int bindLayout() {
         return R.layout.activity_main;
@@ -24,7 +29,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView() {
-
+        shadowLayout = findViewById(R.id.action_update);
     }
 
     @Override
@@ -65,7 +70,6 @@ public class MainActivity extends BaseActivity {
                         MToast.showToast(MainActivity.this, "您没有授权该权限，请在设置中打开授权!");
                     }
                 });
-
                 break;
             case R.id.action_permission:
                 new Thread() {
@@ -81,8 +85,6 @@ public class MainActivity extends BaseActivity {
                         });
                     }
                 }.start();
-
-
                 break;
             default:
         }
