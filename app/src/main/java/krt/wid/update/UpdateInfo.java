@@ -39,9 +39,6 @@ public class UpdateInfo {
         private String ver;
         private String info;
         private String url;
-        private String betaver;
-        private String betainfo;
-        private String betaurl;
 
 
         public String getVer() {
@@ -68,29 +65,7 @@ public class UpdateInfo {
             this.url = url;
         }
 
-        public String getBetaver() {
-            return betaver;
-        }
 
-        public void setBetaver(String betaver) {
-            this.betaver = betaver;
-        }
-
-        public String getBetainfo() {
-            return betainfo;
-        }
-
-        public void setBetainfo(String betainfo) {
-            this.betainfo = betainfo;
-        }
-
-        public String getBetaurl() {
-            return betaurl;
-        }
-
-        public void setBetaurl(String betaurl) {
-            this.betaurl = betaurl;
-        }
 
         public ProdBean getProd() {
             return prod;
@@ -98,14 +73,6 @@ public class UpdateInfo {
 
         public void setProd(ProdBean prod) {
             this.prod = prod;
-        }
-
-        public ProdBean getBeta() {
-            return beta;
-        }
-
-        public void setBeta(ProdBean beta) {
-            this.beta = beta;
         }
 
         public static class ProdBean {
@@ -136,62 +103,6 @@ public class UpdateInfo {
             public void setVersion(String version) {
                 this.version = version;
             }
-        }
-    }
-
-    public static class IosBean {
-        /**
-         * ver : 0
-         * info : 五一前发布
-         * url : itms-services://?action=download-manifest&url=https://dn-createsoftware-appdownload.qbox.me/krt015-pro-6405991418.plist
-         * betaver : 2.0
-         * betainfo : 上架商店版
-         */
-
-        private String ver;
-        private String info;
-        private String url;
-        private String betaver;
-        private String betainfo;
-
-        public String getVer() {
-            return ver;
-        }
-
-        public void setVer(String ver) {
-            this.ver = ver;
-        }
-
-        public String getInfo() {
-            return info;
-        }
-
-        public void setInfo(String info) {
-            this.info = info;
-        }
-
-        public String getUrl() {
-            return url;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
-        }
-
-        public String getBetaver() {
-            return betaver;
-        }
-
-        public void setBetaver(String betaver) {
-            this.betaver = betaver;
-        }
-
-        public String getBetainfo() {
-            return betainfo;
-        }
-
-        public void setBetainfo(String betainfo) {
-            this.betainfo = betainfo;
         }
     }
 }

@@ -25,6 +25,15 @@ android {
         }
     }
 
+    task makeJar(type: Copy){
+        delete 'build/libs/baseLib.jar'
+        from('build/intermediates/aar_main_jar/release')
+        into('build/libs/')
+        include('classes.jar')
+        rename('classes.jar','baseLib.jar')
+    }
+    makeJar.dependsOn(build)
+
 }
 configurations {
     cleanedAnnotations
@@ -71,7 +80,7 @@ dependencies {
 
     api 'com.daimajia.easing:library:2.1@aar'
     api 'com.daimajia.androidanimations:library:2.3@aar'
-    api 'com.appolica:flubber:1.0.1'
+//    api 'com.appolica:flubber:1.0.1'
 
     api 'com.zhihu.android:matisse:0.5.3-beta3'
     api 'com.lzy.net:okgo:3.0.4'

@@ -80,8 +80,7 @@ public class MainActivity extends BaseActivity {
                             if (value) {
                                 MToast.showToast(MainActivity.this, "已跳出子线程");
                             } else {
-                                MToast.showToast(MainActivity.this, "您没有授权该权限，请在设置中打开授权!");
-                            }
+                                MToast.showToast(MainActivity.this, "您没有授权该权限，请在设置中打开授权!");                            }
                         });
                     }
                 }.start();
