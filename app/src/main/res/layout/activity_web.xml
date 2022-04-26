@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <krt.wid.util.MTitle
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp45"
         android:background="#fff" />

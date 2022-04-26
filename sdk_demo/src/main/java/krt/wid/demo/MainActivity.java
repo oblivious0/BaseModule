@@ -2,15 +2,31 @@ package krt.wid.demo;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Environment;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Toast;
 
+import androidx.core.content.FileProvider;
+
+import com.blankj.utilcode.util.AppUtils;
 import com.lihang.ShadowLayout;
+
+import java.io.File;
+import java.util.List;
 
 import butterknife.OnClick;
 import krt.wid.demo.base.BaseActivity;
 import krt.wid.demo.test.update.CustomVersionDialog;
 import krt.wid.demo.test.update.HfyUpdateProgressDialog;
+import krt.wid.demo.web.WebActivity;
 import krt.wid.util.MPermissions;
 import krt.wid.util.MToast;
 import krt.wid.util.MUpdate;
@@ -37,7 +53,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.action_update, R.id.action_permission})
+    @OnClick({R.id.action_update, R.id.action_permission, R.id.action_shareWX, R.id.action_openWX})
     public void onAction(View view) {
         switch (view.getId()) {
             case R.id.action_update:
@@ -80,13 +96,77 @@ public class MainActivity extends BaseActivity {
                             if (value) {
                                 MToast.showToast(MainActivity.this, "已跳出子线程");
                             } else {
-                                MToast.showToast(MainActivity.this, "您没有授权该权限，请在设置中打开授权!");                            }
+                                MToast.showToast(MainActivity.this, "您没有授权该权限，请在设置中打开授权!");
+                            }
                         });
                     }
                 }.start();
                 break;
+            case R.id.action_shareWX:
+//                shareText2WechatFriend(this, "无sdk微信分享！巴扎嘿");
+                shareMsg(this, "巴扎嘿",
+                        Environment.getExternalStorageDirectory().getPath() + File.separator + AppUtils.getAppName()
+                                + File.separator+"/aaa.png");
+                break;
+            case R.id.action_openWX:
+                Intent intent = new Intent(this, WebActivity.class);
+                intent.putExtra("url","https://www.ly3618.com/h5video/searchPage.html");
+                startActivity(intent);
+                break;
             default:
         }
+    }
+
+    public static final String PACKAGE_WECHAT = "com.tencent.mm";
+
+    public static boolean isInstallApp(Context context, String app_package) {
+        final PackageManager packageManager = context.getPackageManager();
+        List<PackageInfo> pInfo = packageManager.getInstalledPackages(0);
+        if (pInfo != null) {
+            for (int i = 0; i < pInfo.size(); i++) {
+                String pn = pInfo.get(i).packageName;
+                if (app_package.equals(pn)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static void shareText2WechatFriend(Context context, String content) {
+        if (isInstallApp(context, PACKAGE_WECHAT)) {
+            Intent intent = new Intent();
+            ComponentName cop = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.tools.ShareImgUI");
+            intent.setComponent(cop);
+            intent.setAction(Intent.ACTION_SEND);
+            intent.putExtra("android.intent.extra.TEXT", content);
+            intent.putExtra("Kdescription", !TextUtils.isEmpty(content) ? content : "");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        } else {
+            Toast.makeText(context, "您需要安装微信客户端", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public  void shareMsg(Context context, String msgText,
+                                String imgPath) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setComponent(new ComponentName("com.tencent.mm", "com.tencent.mm.ui.tools.ShareImgUI"));
+        if (imgPath == null || imgPath.equals("")) {
+            intent.setType("text/plain");
+        } else {
+            File f = new File(imgPath);
+            if (f != null && f.exists() && f.isFile()) {
+                intent.setType("image/*");
+                Uri u = FileProvider.getUriForFile(this,getPackageName()+".fileprovider",f);
+                intent.putExtra(Intent.EXTRA_STREAM, u);
+            }
+        }
+        intent.putExtra(Intent.EXTRA_SUBJECT, "巴扎嘿");
+        intent.putExtra(Intent.EXTRA_TEXT, "剑光如我，斩尽芜杂");
+        intent.putExtra("Kdescription", "剑光如我，斩尽芜杂");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(Intent.createChooser(intent, "分享"));
     }
 
 }
