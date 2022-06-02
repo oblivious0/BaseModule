@@ -3,7 +3,6 @@ package krt.wid.base;
 
 import androidx.multidex.MultiDexApplication;
 
-import com.blankj.utilcode.util.Utils;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 import com.lzy.okgo.model.HttpHeaders;
@@ -28,7 +27,6 @@ public abstract class MApp extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        Utils.init(this);
         init();
         initHttp();
     }

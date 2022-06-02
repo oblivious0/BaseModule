@@ -15,12 +15,7 @@
  */
 package krt.wid.http;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonSyntaxException;
-import com.google.gson.stream.JsonReader;
+i
 import com.readystatesoftware.chuck.internal.support.JsonConvertor;
 
 import java.io.Reader;
@@ -46,7 +41,7 @@ public class Convert {
     }
 
     public static <T> T fromJson(String json, Class<T> type) throws JsonIOException, JsonSyntaxException {
-        return create().fromJson(json, type);
+        return JSONReader.fromJson(json, type);
     }
 
     public static <T> T fromJson(String json, Type type) {

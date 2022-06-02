@@ -57,25 +57,25 @@ dependencies {
 //    implementation(name: 'vpi', ext: 'aar')
 
 //    api 'androidx.cardview:cardview:1.0.0' 替换
-    api 'com.github.lihangleo2:ShadowLayout:3.2.0'
+//    api 'com.github.lihangleo2:ShadowLayout:3.2.0'
 
     api 'androidx.core:core:1.2.0'
 
-    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45'
-//    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+//    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
 
     api 'com.wang.avi:library:2.1.3'
     api 'com.android.support:multidex:1.0.3'
     api 'top.zibin:Luban:1.1.8'
     api 'io.reactivex.rxjava2:rxjava:2.2.12'
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    api('com.alibaba.android:vlayout:1.2.8@aar') {
-        transitive = false
-    }
-    api 'com.github.lzyzsd:circleprogress:1.2.1'
+//    api('com.alibaba.android:vlayout:1.2.8@aar') {
+//        transitive = false
+//    }
+//    api 'com.github.lzyzsd:circleprogress:1.2.1'
     api 'com.blankj:utilcodex:1.30.6'
     api 'org.greenrobot:eventbus:3.1.1'
-    api 'com.github.hackware1993:MagicIndicator:1.5.0'
+//    api 'com.github.hackware1993:MagicIndicator:1.5.0'
     api 'com.jaeger.statusbarutil:library:1.5.1'
 
     api 'com.daimajia.easing:library:2.1@aar'
@@ -85,22 +85,22 @@ dependencies {
     api 'com.zhihu.android:matisse:0.5.3-beta3'
     api 'com.lzy.net:okgo:3.0.4'
     api 'com.alibaba:fastjson:1.1.70.android'
-    api 'com.lcodecorex:tkrefreshlayout:1.0.7'
-    api 'com.droidninja:filepicker:2.2.1'
+//    api 'com.lcodecorex:tkrefreshlayout:1.0.7'
+//    api 'com.droidninja:filepicker:2.2.1'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation('com.readystatesoftware.chuck:library:1.0.4') {
         transitive false
     }
-    api('com.czt.mp3recorder:library:1.0.4') {
-        transitive false
-    }
+//    api('com.czt.mp3recorder:library:1.0.4') {
+//        transitive false
+//    }
 //    api('com.yanzhenjie.permission:support:2.0.1') {
 //        transitive false
 //    }
     api 'com.github.bumptech.glide:glide:4.11.0'
     api 'jp.wasabeef:glide-transformations:4.0.0'
 
-    api 'com.github.tbruyelle:rxpermissions:0.10.2'
+//    api 'com.github.tbruyelle:rxpermissions:0.10.2'
 //    implementation 'com.github.tbruyelle:rxpermissions:0.12'
     api 'net.frakbot:jumpingbeans:1.3.0'
     api 'com.daimajia.numberprogressbar:library:1.4@aar'
