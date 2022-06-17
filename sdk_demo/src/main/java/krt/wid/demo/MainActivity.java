@@ -169,4 +169,8 @@ public class MainActivity extends BaseActivity {
         context.startActivity(Intent.createChooser(intent, "分享"));
     }
 
+    @Override
+    public void afterRequestPermission(int requestCode, boolean isAllGranted) {
+
+    }
 }

@@ -2,7 +2,9 @@ package krt.wid.permissions;
 
 import android.app.Activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 public class ManifestUtils {
@@ -29,15 +31,24 @@ public class ManifestUtils {
                 activity = ((Fragment) mContext).getActivity();
             }
 
+            final Activity activity1 = activity;
+
             if (activity != null) {
-                //ActivityCompat.requestPermissions(activity, applyPermissions, requestCode);
+                final AlertDialog dialog = new AlertDialog.Builder(activity)
+                        .setMessage(hint)
+                        .setTitle("是否同意应用获得如下权限")
+                        .setNegativeButton("取消", (dialogInterface, i) -> dialogInterface.dismiss())
+                        .setNegativeButton("同意", (dialogInterface, i) -> {
+                            ActivityCompat.requestPermissions(activity1, applyPermissions, requestCode);
+                            dialogInterface.dismiss();
+                        })
+                        .create();
+                dialog.show();
+
             } else {
                 throw new NullPointerException("主体不存在！");
             }
-
-
         }
-
     }
 
     public static class Builder {
